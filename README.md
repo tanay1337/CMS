@@ -17,10 +17,10 @@ CMS (Complaint Management System)
 >         Db: cms
 > If these differ in your machine, then you will have to update the new details at:
 >          
->        admin/core/control/all_connect.php
->        admin/core/control/conn.php
->        user/core/control/all_connect.php
->        user/core/control/conn.php
+>         admin/core/control/all_connect.php
+>         admin/core/control/conn.php
+>         user/core/control/all_connect.php
+>         user/core/control/conn.php
 >
 > 3. Log in at the `Admin Control Panel` using `http://127.0.0.1/admin/` with the following credentials:
 >
