@@ -27,7 +27,10 @@ CMS (Complaint Management System)
 >         Email: neeraj@gmail.com
 >         Pass:  neeraj
 >
-> 4. New users can be created from the registration form at the home page.
+> 4. New users can be created from the registration form at the home page. Existing user:
+>
+>         Email: tanay@gmail.com
+>         Pass : tanay
 >
 > 5. Happy Hacking!
 
