@@ -9,7 +9,7 @@ CMS (Complaint Management System)
 
 > 1. Copy all the files to the root directory of your local server.
 
-> 2. Upload the `cms.sql` to MYSQL using `phpmyadmin`, default configuration is:
+> 2. Upload the `cms.sql` to MySQL using `phpmyadmin`, default configuration is:
 >          
 >         Host: localhost
 >         User: root
