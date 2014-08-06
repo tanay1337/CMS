@@ -53,7 +53,7 @@ if(mysqli_query($con, $sql))
 
 
 <div id="registered-note" style="opacity: 0.9; background-color: #f5f8fa; position:absolute; left: 30%; margin-top: 100px; border: 1px; width:500px; padding:10px; border:2px solid gray;">
-Congratulations! You have now been registered on KAG's CMS. You can now login to your account using the above login fields to file complaints, join the community chat and view the Bulletin Board.<br><br> <center>Your Email-Id is: <?php echo $email; ?></center>
+Congratulations! You have now been registered on KAG's CMS. You can now login to your account using the above login fields to file complaints and view the Bulletin Board.<br><br> <center>Your Email-Id is: <?php echo $email; ?></center>
 </div>
 
 <?php
