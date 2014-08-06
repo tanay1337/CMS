@@ -1,16 +1,19 @@
-<!DOCTYPE HTML>
-<head>
-	<title>Complaint Management System - Admin Control Panel</title>
-<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href="../../extras/jquery-ui.css" rel="stylesheet">
-<script src="../../extras/jquery.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<link href="../../extras/css/bootstrap.css" rel="stylesheet">
+    <title>Dashboard - KAG Admin</title>
+
+    <link href="../../extras/css/bootstrap.css" rel="stylesheet">
+
     <link href="../../extras/css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="../../extras/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../extras/morris-0.4.3.min.css">
     <script src="../../extras/js/jquery-1.10.2.js"></script>
-    <script src="../../extras/js/bootstrap.js"></script>
+    <script src="../../extras/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
   $("#flip").click(function(){
@@ -30,15 +33,14 @@ function newPopup(url) {
     url,'popUpWindow','height=420,width=600,left=0,top=0,resizable=no,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
 }
 </script>
-<style>
+    <style>
  body {
  background: url(../../extras/images/welcome-bg.png);
 background-repeat: repeat !important;
 background-attachment: fixed;
 }
 </style>
-</head>
-
+  </head>
 <?php
 $admin_email = $_POST['admin_email'];
 $admin_password = $_POST['admin_password'];
@@ -48,20 +50,20 @@ $sql = "SELECT * FROM admin WHERE email = '$admin_email' AND password = '$admin_
 $result = mysqli_query($con, $sql);
 $num = mysqli_num_rows($result);
 if(!$num==1) {
-	header('Location : http://127.0.0.1/');
+  header('Location : http://127.0.0.1/');
 }
 else {
-	while($obj = mysqli_fetch_assoc($result)) {
-	if(function_exists('session_start'))
+  while($obj = mysqli_fetch_assoc($result)) {
+  if(function_exists('session_start'))
 {
  session_start();
 }
 else
 {
-	header('Location: http://127.0.0.1/');
+  header('Location: http://127.0.0.1/');
 }
-	
-	if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
+  
+  if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
 { 
  if($_POST['admin_email']==$admin_email && $_POST['admin_password']==$admin_password)
  {
@@ -69,7 +71,7 @@ else
    $_SESSION['authenticated']=1;
 }
 }
-	if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated']!==1)
+  if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated']!==1)
 {
  header('Location: http://127.0.0.1/');
 }
@@ -79,49 +81,51 @@ $_SESSION['authenticated']=1;
 $_SESSION['userinfo']=$obj['firstname']." ".$obj['lastname']." (".$obj['block']."-".$obj['flatnumber'].")";
  ?>
 
-<body>
-	<div id="header" style="opacity: 0.8; background-color: #000000; position: absolute; height: 50px; width: 100%;  top: 0; left: 0; right:0; font-family: 'Arimo', sans-serif;">
-		<div id="header_left" style="color: #f5f8fa; float: left; width: 70%; margin-top: 8px; margin-left: 5%; font-family: 'Arimo', sans-serif;">
-			<font size="5px"><strong>CMS</strong></font> Complaint Management System -Admin CP
-		</div>
-	<ul class="nav navbar-nav navbar-right navbar-user" style="margin-right: 5%;">
-             <li><a href="JavaScript:newPopup('../core/control/chat_main.php');"><i class="fa fa-comment"></i> Chat</a></li>
-          
-                <li><a href="http://127.0.0.1/"><i class="fa fa-power-off"></i> Log Out</a></li>
-              
-          </ul>
-	</div>
+  <body>
 
-<div id="content" style="width: 100%; font-family: 'Arimo', sans-serif;">
-<div id="panel-left" style="color: #ffffff; background-color: #000000; margin-top:50px; position: fixed; float: left; border:1px solid #000000; padding:10px; height: 100%; width: 250px; top:0; left:0; right:0; font-family: 'Arimo', sans-serif;">
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">KAG - ACP</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <div class="nav navbar-nav side-nav">
+            <div id="panel-left" style="color: #ffffff; background-color: #000000; margin-top:50px; position: fixed; float: left; border:1px solid #000000; padding:10px; height: 100%; width: 250px; top:0; left:0; right:0; font-family: 'Arimo', sans-serif;">
 <center>
 
 
-<?php 
+ <?php 
 require("../core/control/conn.php");
 
-	 
-				$sql = "select * from admin where email='$admin_email'";
-				$result2 = mysql_query($sql) or die ("Could not access DB: " . mysql_error());
+   
+        $sql = "select * from admin where email='$admin_email'";
+        $result2 = mysql_query($sql) or die ("Could not access DB: " . mysql_error());
 
-				while ($row = mysql_fetch_assoc($result2))
-				{
-					
-					if($row['filename']==null) {
-						echo "<img src=\"../core/images/" . "default.JPG" . "\" alt=\"\" style=\"height: 160px; width: 160px; border-radius: 50%; border: 3px solid #55ACEE; \" /><br />";
-					}
-					else {
-					echo "<img src=\"../core/images/" . $row['filename'] . "\" alt=\"\" style=\"height: 150px; width: 160px; border-radius: 50%; border: 3px solid #55ACEE; \" /><br />";
+        while ($row = mysql_fetch_assoc($result2))
+        {
+          
+          if($row['filename']==null) {
+            echo "<img src=\"../core/images/" . "default.JPG" . "\" alt=\"\" style=\"height: 160px; width: 160px; border-radius: 50%; border: 3px solid #55ACEE; \" /><br />";
+          }
+          else {
+          echo "<img src=\"../core/images/" . $row['filename'] . "\" alt=\"\" style=\"height: 150px; width: 160px; border-radius: 50%; border: 3px solid #55ACEE; \" /><br />";
 
-						}
-					
-				}
+            }
+          
+        }
 
-			?>
-
-
-
-</center>
+      ?></center>
 
 
 <hr color="#55ACEE">
@@ -132,22 +136,44 @@ echo "<i class='fa fa-table'></i><font color='#55ACEE'> Mobile: </font>{$obj['mo
 ?>
 <br>
 <hr color="#55ACEE">
+
+
+
+
 <center><button id="slip">Edit Profile</button><button id="flip">Edit Picture</button></center>
 <div id="sanel" style="display: none;">
-<iframe src="../core/control/profile_edit.php" style="height: 124px; width: 200px;"></iframe>
+<iframe src="../../admin/core/control/profile_edit.php" style="height: 124px; width: 200px;"></iframe>
 </div> 
 
 <div id="panel" style="display: none;">
 <font size="2">Upload New Profile Picture:</font>
-<iframe src="../core/control/upload.php" style="height: 94px; width: 200px;"></iframe>
+<iframe src="../../admin/core/control/upload.php" style="height: 94px; width: 200px;"></iframe>
 </div>
 
-
-
-
 </div>
+            
+          </div>
 
-<div id="panel-center" style="margin-top: 20px; position: absolute; float: center; margin-left: 27%; font-family: 'Arimo', sans-serif;">
+          <ul class="nav navbar-nav navbar-right navbar-user">
+              <li><a href="JavaScript:newPopup('../user/core/control/chat_main.php');"><i class="fa fa-comment"></i> Chat</a></li>
+              <li class="dropdown user-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo "{$obj['firstname']} {$obj['lastname']}"; ?> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="http://127.0.0.1/"><i class="fa fa-power-off"></i> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div id="page-wrapper">
+
+  
+
+        <div class="row">
+          <div id="panel-center" style="position: relative; float: center; margin-left: 10%; font-family: 'Arimo', sans-serif;">
 
           <div class="col-lg-14">
             <div class="bs-example">
@@ -160,41 +186,47 @@ echo "<i class='fa fa-table'></i><font color='#55ACEE'> Mobile: </font>{$obj['mo
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="viewpendingcomplaint">
-                  <iframe src="../core/control/pendingcomplaints.php" style="height: 430px; width: 640px;"></iframe>
+                  <iframe src="../core/control/pendingcomplaints.php" style="height: 430px; width: 63%;"></iframe>
                 </div>
                 <div class="tab-pane fade" id="viewsolvedcomplaint">
-                  <iframe src="../core/control/solvedcomplaints.php" style="height: 430px; width: 640px;"></iframe>
+                  <iframe src="../core/control/solvedcomplaints.php" style="height: 430px; width: 63%;"></iframe>
                 </div>
                 <div class="tab-pane fade" id="addbulletin">
-                  <iframe src="../core/control/addbulletin.php" style="height: 430px; width: 640px;"></iframe>
+                  <iframe src="../core/control/addbulletin.php" style="height: 430px; width: 63%;"></iframe>
                 </div>
                 <div class="tab-pane fade" id="managebulletin">
-                  <iframe src="../core/control/managebulletin.php" style="height: 430px; width: 640px;"></iframe>
+                  <iframe src="../core/control/managebulletin.php" style="height: 430px; width: 63%;"></iframe>
                 </div>
               </div>
             </div>
 
 </div>
+        </div><!-- /.row -->
 
+        
+      </div><!-- /#page-wrapper -->
+ <div class="collapse navbar-collapse">
+          <div class="nav navbar-nav side-nav">
 <div id="panel-right" style="background-color: #000000; color: #ffffff; top:0; right:0; margin-top:50px; position: fixed; float: right; border:1px solid #000000; padding:10px; height: 100%; width: 270px; font-family: 'Arimo', sans-serif; ">
   <iframe src="../core/control/graph.php" height="88%" width="240px"></iframe>
-</div>
+</div></div></div>
 
-<script src="../../extras/jquery.js"></script>
-<script src="../../extras/jquery-ui.js"></script>
-<script>
-$( "#tabs" ).tabs();
-</script>
-</div>
+    </div><!-- /#wrapper -->
 
+    <!-- JavaScript -->
+    <script src="../../extras/js/jquery-1.10.2.js"></script>
+    <script src="../../extras/js/bootstrap.js"></script>
 
-</div>
+    <!-- Page Specific Plugins -->
+
+    <script src="../../extras/js/tablesorter/jquery.tablesorter.js"></script>
+    <script src="../../extras/js/tablesorter/tables.js"></script>
+
+  </body>
 <?php
-	}
-}
+  }
+  }
 }
 mysqli_close($con);
-include("../../extras/footer.php");
 ?>
-
-</body>
+</html>

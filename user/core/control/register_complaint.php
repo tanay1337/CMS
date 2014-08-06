@@ -5,6 +5,9 @@ $_SESSION['authenticated']=1;
 $address=$_SESSION['address'];
 ?>
 <!DOCTYPE HTML>
+<head>
+	
+   </head>
 <body>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="register_complaint">
 		<select name="block" style="height:25px; width: 200px; border-radius: 6px;">
@@ -14,7 +17,7 @@ $address=$_SESSION['address'];
   <option value="4">Swimming Pool</option>
   <option value="5">Other Problem</option>
 </select> 
-		<textarea id="text" placeholder="Your Complaint Goes Here." name="complaint" style="margin-top: 10px; height: 310px; width: 570px; background-color: #f5f8fa; border-radius: 6px;" required ></textarea><br>
+		<textarea id="text" placeholder="Your Complaint Goes Here." class="form-control" name="complaint" style="margin-top: 10px; height: 310px; width: 550px;" required ></textarea><br>
 		<center><input type="submit" value="Submit" style="margin-top: 10px; width:70px; height: 30px; background-color: #55ACEE; border-radius: 6px;" /></center>
 	</form>
 </body>
