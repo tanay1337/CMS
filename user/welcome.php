@@ -58,7 +58,7 @@ $sql = "SELECT * FROM users WHERE email = '$user_email' AND password = '$user_pa
 $result = mysqli_query($con, $sql);
 $num = mysqli_num_rows($result);
 if(!$num==1) {
-header('Location : http://cms4society.t15.org/');
+header('Location : http://127.0.0.1/');
 }
 else {
 while($obj = mysqli_fetch_assoc($result)) { 
@@ -68,12 +68,12 @@ session_start();
 }
 else
 {
-header('Location: http://cms4society.t15.org/');
+header('Location: http://127.0.0.1/');
 }
 
 if(isset($_POST['user_email']) && isset($_POST['user_password']))
 { 
-if($_POST['user_email']==$user_email && $_POST['user_password']==$user_password)
+if($_POST['user_email']==$user_email && MD5($_POST['user_password'])==$user_password)
 {
 $_SESSION['user_email']=$user_email;
 $_SESSION['authenticated']=1;
@@ -81,7 +81,7 @@ $_SESSION['authenticated']=1;
 }
 if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated']!==1)
 {
-header('Location: http://cms4society.t15.org/');
+header('Location: http://127.0.0.1/');
 }
 else
 {

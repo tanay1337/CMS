@@ -73,7 +73,7 @@ header('Location: http://127.0.0.1/');
 
 if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
 { 
-if($_POST['admin_email']==$admin_email && $_POST['admin_password']==$admin_password)
+if($_POST['admin_email']==$admin_email && MD5($_POST['admin_password'])==$admin_password)
 {
 $_SESSION['admin_email']=$admin_email;
 $_SESSION['authenticated']=1;
@@ -214,7 +214,7 @@ Mobile:
           
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li>
-              <a href="JavaScript:newPopup('../user/core/control/chat_main.php');">
+              <a href="JavaScript:newPopup('../core/control/chat_main.php');">
                 <i class="fa fa-comment">
                 </i>
                 Chat
@@ -241,7 +241,7 @@ Mobile:
                   <li class="divider">
                   </li>
                   <li>
-                    <a href="http://127.0.0.1/">
+                    <a href="http://127.0.0.1/admin/">
                       <i class="fa fa-power-off">
                       </i>
                       Log Out

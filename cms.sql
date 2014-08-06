@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2014 at 03:53 PM
+-- Generation Time: Aug 06, 2014 at 11:37 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `firstname`, `lastname`, `email`, `block`, `flatnumber`, `mobile`, `password`, `filename`) VALUES
-(1, 'Neeraj', 'Pant', 'neeraj@gmail.com', 'A1', 1203, '9999999999', 'neeraj', 'neeraj@gmail.com.JPG');
+(1, 'Neeraj', 'Pant', 'neeraj@gmail.com', 'A1', 1203, '9999999999', 'e73efee274e35cd0f133624774d16006', 'neeraj@gmail.com.JPG');
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `bulletin` (
   `expirydate` varchar(50) NOT NULL,
   `filename` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,15 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `from_email` varchar(100) NOT NULL,
   `chat_message` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `from_userinfo`, `from_email`, `chat_message`) VALUES
+(1, 'Tanay Pant (A1-1203)', 'tanay@gmail.com', 'Hey!'),
+(2, 'Neeraj Pant (A1-1203)', '', 'Hi Tanay');
 
 -- --------------------------------------------------------
 
@@ -90,19 +98,29 @@ CREATE TABLE IF NOT EXISTS `complaint` (
   `address` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `complaint` varchar(500) NOT NULL,
+  `complainttype` varchar(50) NOT NULL,
   `complaintdate` varchar(50) NOT NULL,
   `solveddate` varchar(50) NOT NULL,
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `complaint`
 --
 
-INSERT INTO `complaint` (`id`, `address`, `email`, `complaint`, `complaintdate`, `solveddate`, `status`) VALUES
-(44, 'A1-1203', 'tanay@gmail.com', 'Just Kidding!', '01-07-14', '', 'Pending'),
-(46, 'A1-1203', 'tanay@gmail.com', 'Washbasin not working!', '11-07-14', '11-07-14', 'Solved');
+INSERT INTO `complaint` (`id`, `address`, `email`, `complaint`, `complainttype`, `complaintdate`, `solveddate`, `status`) VALUES
+(44, 'A1-1203', 'tanay@gmail.com', 'Just Kidding!', '', '01-07-14', '06-08-14', 'Solved'),
+(46, 'A1-1203', 'tanay@gmail.com', 'Washbasin not working!', '', '11-07-14', '11-07-14', 'Solved'),
+(47, 'A1-1203', 'tanay@gmail.com', 'New design still messing up!', 'elec', '06-08-14', '', 'Pending'),
+(48, 'A1-1203', 'tanay@gmail.com', 'Hackers attacking the base!', 'lift', '06-08-14', '06-08-14', 'Solved'),
+(49, 'A1-1203', 'tanay@gmail.com', 'Boring', 'elec', '06-08-14', '', 'Pending'),
+(50, 'A1-1203', 'tanay@gmail.com', 'Testing', 'plum', '06-08-14', '', 'Pending'),
+(51, 'A1-1203', 'tanay@gmail.com', 'test', 'main', '06-08-14', '', 'Pending'),
+(52, 'A1-1203', 'tanay@gmail.com', 'test', 'club', '06-08-14', '', 'Pending'),
+(53, 'A1-1203', 'tanay@gmail.com', 'test', 'plum', '06-08-14', '', 'Pending'),
+(54, 'A1-1203', 'tanay@gmail.com', 'test', 'lift', '06-08-14', '', 'Pending'),
+(55, 'A1-1203', 'tanay@gmail.com', 'test', 'lift', '06-08-14', '', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -122,15 +140,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `filename` varchar(200) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `block`, `flatnumber`, `mobile`, `password`, `filename`) VALUES
-(1, 'Tanay', 'Pant', 'tanay@gmail.com', 'A1', '1203', '8888888888', 'tanay', 'tanay@gmail.com.JPG'),
-(2, '', '', 't@g.com', '', '', '', '', '');
+(1, 'Tanay', 'Pant', 'tanay@gmail.com', 'A1', '1203', '8888888888', '9b1043f5a058ed9ab4b199137527c1c5', 'tanay@gmail.com.JPG');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

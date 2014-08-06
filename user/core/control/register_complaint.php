@@ -10,12 +10,14 @@ $address=$_SESSION['address'];
    </head>
 <body>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="register_complaint">
-		<select name="block" style="height:25px; width: 200px; border-radius: 6px;">
-			<option value="1">Plumbing Problem</option>
-  <option value="2">Electric Problem</option>
-  <option value="3">Maintainance</option>
-  <option value="4">Swimming Pool</option>
-  <option value="5">Other Problem</option>
+		<select name="complainttype" style="height:25px; width: 200px; border-radius: 6px;" required>
+  <option value="">Complaint Type</option>electrical, plumbing, maintainence, club house, lift, others
+  <option value="elec">Electrical Problem</option>
+  <option value="plum">Plumbing Problem</option>
+  <option value="main">Maintainance</option>
+  <option value="lift">Lift Problem</option>
+  <option value="club">Club House Issue</option>
+  <option value="othr">Other Issue</option>
 </select> 
 		<textarea id="text" placeholder="Your Complaint Goes Here." class="form-control" name="complaint" style="margin-top: 10px; height: 310px; width: 550px;" required ></textarea><br>
 		<center><input type="submit" value="Submit" style="margin-top: 10px; width:70px; height: 30px; background-color: #55ACEE; border-radius: 6px;" /></center>
@@ -23,14 +25,15 @@ $address=$_SESSION['address'];
 </body>
 
 <?php
-if(isset($_POST['complaint'])) {
+if(isset($_POST['complaint'])&&(isset($_POST['complainttype']))) {
 date_default_timezone_set('UTC');
 $complaintdate = date("d-m-y");
 $email=$user_email;
 $status="Pending";
+$complainttype=$_POST['complainttype'];
 $complaint=$_POST['complaint'];
 require("all_connect.php");
-$sql="INSERT INTO complaint(address, email, complaint, complaintdate, status) VALUES('$address', '$email', '$complaint', '$complaintdate', '$status')";
+$sql="INSERT INTO complaint(address, email, complaint, complainttype, complaintdate, status) VALUES('$address', '$email', '$complaint', '$complainttype', '$complaintdate', '$status')";
 if(mysqli_query($con, $sql))
 {	?>
 
