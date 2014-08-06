@@ -51,7 +51,7 @@
   </head>
   <?php
 $user_email = $_POST['user_email'];
-$user_password = $_POST['user_password'];
+$user_password = MD5($_POST['user_password']);
 
 $con = mysqli_connect("localhost", "root", "", "cms");
 $sql = "SELECT * FROM users WHERE email = '$user_email' AND password = '$user_password' ";

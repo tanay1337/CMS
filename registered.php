@@ -52,7 +52,7 @@ $email=$_POST['email'];
 $block=$_POST['block'];
 $flatnumber=$_POST['flatnumber'];
 $mobile=$_POST['mobile'];
-$password=$_POST['password'];
+$password=MD5($_POST['password']);
 $con = mysqli_connect("localhost", "root", "", "cms");
 $sql="INSERT INTO users(firstname, lastname, email, block, flatnumber, mobile, password) VALUES('$firstname', '$lastname', '$email', '$block', '$flatnumber', '$mobile', '$password')";
 if(mysqli_query($con, $sql))

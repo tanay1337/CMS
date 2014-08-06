@@ -51,7 +51,7 @@
   </head>
   <?php
 $admin_email = $_POST['admin_email'];
-$admin_password = $_POST['admin_password'];
+$admin_password = MD5($_POST['admin_password']);
 $con = mysqli_connect("localhost", "root", "", "cms");
 
 $sql = "SELECT * FROM admin WHERE email = '$admin_email' AND password = '$admin_password' ";
