@@ -69,7 +69,7 @@ $pendelecprob1=(($num3/$pendingprob)*100);
 $pendelecprob=(int) $pendelecprob1;
 ?>
 
-Percent Electricty issues: <span style="color: #55ACEE;"><?php echo $pendelecprob; ?>%</span><br>
+Pending Electricty issues: <span style="color: #55ACEE;"><?php echo $pendelecprob; ?>%</span><br>
 <div class="progress progress-striped active">
     <div class="progress-bar" style="width: <?php echo $pendelecprob; ?>%"></div>
 </div>
@@ -79,7 +79,7 @@ Percent Electricty issues: <span style="color: #55ACEE;"><?php echo $pendelecpro
 $pendplumprob1=(($num4/$pendingprob)*100);
 $pendplumprob=(int) $pendplumprob1;
 ?>
-Percent Plumbing issues: <span style="color: #55ACEE;"><?php echo $pendplumprob; ?>%</span><br>
+Pending Plumbing issues: <span style="color: #55ACEE;"><?php echo $pendplumprob; ?>%</span><br>
 
 
 <div class="progress progress-striped active">
@@ -91,7 +91,7 @@ Percent Plumbing issues: <span style="color: #55ACEE;"><?php echo $pendplumprob;
 $pendmainprob1=(($num5/$pendingprob)*100);
 $pendmainprob=(int) $pendmainprob1;
 ?>
-Percent Maintainance issues: <span style="color: #55ACEE;"><?php echo $pendmainprob; ?>%</span><br>
+Pending Maint. issues: <span style="color: #55ACEE;"><?php echo $pendmainprob; ?>%</span><br>
 
 
 <div class="progress progress-striped active">
@@ -103,7 +103,7 @@ Percent Maintainance issues: <span style="color: #55ACEE;"><?php echo $pendmainp
 $pendliftprob1=(($num6/$pendingprob)*100);
 $pendliftprob=(int) $pendliftprob1;
 ?>
-Percent Elevator issues: <span style="color: #55ACEE;"><?php echo $pendliftprob; ?>%</span><br>
+Pending Elevator issues: <span style="color: #55ACEE;"><?php echo $pendliftprob; ?>%</span><br>
 
 
 <div class="progress progress-striped active">
@@ -115,7 +115,7 @@ Percent Elevator issues: <span style="color: #55ACEE;"><?php echo $pendliftprob;
 $pendclubprob1=(($num7/$pendingprob)*100);
 $pendclubprob=(int) $pendclubprob1;
 ?>
-Percent Club House issues: <span style="color: #55ACEE;"><?php echo $pendclubprob; ?>%</span><br>
+Pending Club House issues: <span style="color: #55ACEE;"><?php echo $pendclubprob; ?>%</span><br>
 
 
 <div class="progress progress-striped active">

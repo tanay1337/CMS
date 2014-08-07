@@ -4,6 +4,8 @@
     Complaint Management System - Registered
   </title>
   <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       background: url(/extras/images/bg.jpg);
