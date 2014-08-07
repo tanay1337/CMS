@@ -46,13 +46,13 @@
 </body>
 
 <?php
-$firstname=$_POST['firstname'];
-$lastname=$_POST['lastname'];
+$firstname= htmlentities(strip_tags($_POST['firstname']));
+$lastname=htmlentities(strip_tags($_POST['lastname']));
 $email=$_POST['email'];
-$block=$_POST['block'];
-$flatnumber=$_POST['flatnumber'];
-$mobile=$_POST['mobile'];
-$password=MD5($_POST['password']);
+$block=htmlentities(strip_tags($_POST['block']));
+$flatnumber=mysqli_real_escape_string(htmlentities(strip_tags($_POST['flatnumber'])));
+$mobile=htmlentities(strip_tags($_POST['mobile']));
+$password=MD5(htmlentities(strip_tags(($_POST['password'])));
 $con = mysqli_connect("localhost", "root", "", "cms");
 $sql="INSERT INTO users(firstname, lastname, email, block, flatnumber, mobile, password) VALUES('$firstname', '$lastname', '$email', '$block', '$flatnumber', '$mobile', '$password')";
 if(mysqli_query($con, $sql))

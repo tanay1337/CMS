@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $admin_email= $_SESSION['admin_email'];
 $_SESSION['authenticated']=1;
@@ -19,8 +18,8 @@ if(isset($_POST['action_status'])&&isset($_POST['id'])) {
 	require("conn.php");
 	date_default_timezone_set('UTC');
     $todaydate = date("d-m-y");
-	$action_status=$_POST['action_status'];
-	$id=$_POST['id'];
+	$action_status=htmlentities(strip_tags($_POST['action_status']));
+	$id=htmlentities(strip_tags($_POST['id']));
 $sql = "UPDATE complaint SET status='$action_status' WHERE id='$id' ";
 
 if(mysql_query($sql)) {

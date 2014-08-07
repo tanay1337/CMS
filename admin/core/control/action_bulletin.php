@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 $admin_email= $_SESSION['admin_email'];
 $_SESSION['authenticated']=1;
@@ -18,7 +17,7 @@ $_SESSION['authenticated']=1;
 <?php
 if(isset($_POST['id'])) {
 require("all_connect.php");
-$id=$_POST['id'];
+$id=htmlentities(strip_tags($_POST['id']));
 $sql= "SELECT * FROM bulletin WHERE id = '$id'";
 $result = mysqli_query($con, $sql);
 $num = mysqli_num_rows($result);

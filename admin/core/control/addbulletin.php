@@ -41,8 +41,8 @@ $TARGET_PATH = "../../../announcements/";
 $announcement = $_FILES['pdf'];
 $announcement['name'] = mysql_real_escape_string(date_timestamp_get($date).".PDF");
 $TARGET_PATH .= $announcement['name'];
-$title=$_POST['title'];
-$summary=$_POST['summary'];
+$title=htmlentities(strip_tags($_POST['title']));
+$summary=htmlentities(strip_tags($_POST['summary']));
 require("all_connect.php");
 $sql="INSERT INTO bulletin(title, summary, postdate, expirydate, filename) VALUES('$title', '$summary', '$postdate', '$expirydate', '" . $announcement['name'] . "')";	
 

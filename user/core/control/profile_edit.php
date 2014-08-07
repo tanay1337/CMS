@@ -17,11 +17,11 @@ $_SESSION['authenticated']=1;
 
 <?php
 if((isset($_POST['user_fname']))&&(isset($_POST['user_lname']))&&(isset($_POST['user_block']))&&(isset($_POST['user_flatnumber']))&&(isset($_POST['user_mobile']))) {
-	$user_fname=$_POST['user_fname'];
-	$user_lname=$_POST['user_lname'];
-	$user_block=$_POST['user_block'];
-	$user_flatnumber=$_POST['user_flatnumber'];
-	$user_mobile=$_POST['user_mobile'];
+	$user_fname=htmlentities(strip_tags($_POST['user_fname']));
+	$user_lname=htmlentities(strip_tags($_POST['user_lname']));
+	$user_block=htmlentities(strip_tags($_POST['user_block']));
+	$user_flatnumber=htmlentities(strip_tags($_POST['user_flatnumber']));
+	$user_mobile=htmlentities(strip_tags($_POST['user_mobile']));
 require("all_connect.php");
 	$sql = "UPDATE users SET firstname='$user_fname', lastname='$user_lname', block='$user_block', flatnumber='$user_flatnumber', mobile='$user_mobile' WHERE email='$user_email'";
 	if(mysqli_query($con, $sql))

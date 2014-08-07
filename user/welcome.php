@@ -51,7 +51,7 @@
   </head>
   <?php
 $user_email = $_POST['user_email'];
-$user_password = MD5($_POST['user_password']);
+$user_password = MD5(htmlentities(strip_tags($_POST['user_password'])));
 
 $con = mysqli_connect("localhost", "root", "", "cms");
 $sql = "SELECT * FROM users WHERE email = '$user_email' AND password = '$user_password' ";
@@ -73,7 +73,7 @@ header('Location: http://127.0.0.1/');
 
 if(isset($_POST['user_email']) && isset($_POST['user_password']))
 { 
-if($_POST['user_email']==$user_email && MD5($_POST['user_password'])==$user_password)
+if($_POST['user_email']==$user_email && MD5(htmlentities(strip_tags($_POST['user_password'])))==$user_password)
 {
 $_SESSION['user_email']=$user_email;
 $_SESSION['authenticated']=1;

@@ -23,7 +23,7 @@ $_SESSION['authenticated']=1;
 
 if(isset($_POST['chat_message'])) {
 $from_chat=$user_email;
-$chat_message=$_POST['chat_message'];
+$chat_message=htmlentities(strip_tags($_POST['chat_message']));
 require("all_connect.php");
 $sql="INSERT INTO chat(from_userinfo, from_email, chat_message) VALUES('$from_userinfo', '$user_email', '$chat_message')";
 if(mysqli_query($con, $sql))

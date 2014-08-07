@@ -39,7 +39,7 @@
           
           Username/ Email:
           <br>
-          <input type="text" name="user_email" placeholder="Email-ID" style="height:20px; width: 170px; border-radius: 6px;" required />
+          <input type="email" name="user_email" placeholder="Email-ID" style="height:20px; width: 170px; border-radius: 6px;" required />
           <br>
           Password: 
           <br>

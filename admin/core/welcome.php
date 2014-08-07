@@ -51,7 +51,7 @@
   </head>
   <?php
 $admin_email = $_POST['admin_email'];
-$admin_password = MD5($_POST['admin_password']);
+$admin_password = MD5(htmlentities(strip_tags($_POST['admin_password'])));
 $con = mysqli_connect("localhost", "root", "", "cms");
 
 $sql = "SELECT * FROM admin WHERE email = '$admin_email' AND password = '$admin_password' ";
@@ -73,7 +73,7 @@ header('Location: http://127.0.0.1/');
 
 if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
 { 
-if($_POST['admin_email']==$admin_email && MD5($_POST['admin_password'])==$admin_password)
+if($_POST['admin_email']==$admin_email && MD5(htmlentities(strip_tags($_POST['admin_password'])))==$admin_password)
 {
 $_SESSION['admin_email']=$admin_email;
 $_SESSION['authenticated']=1;

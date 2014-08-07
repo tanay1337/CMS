@@ -17,11 +17,11 @@ $_SESSION['authenticated']=1;
 
 <?php
 if((isset($_POST['admin_fname']))&&(isset($_POST['admin_lname']))&&(isset($_POST['admin_block']))&&(isset($_POST['admin_flatnumber']))&&(isset($_POST['admin_mobile']))) {
-	$admin_fname=$_POST['admin_fname'];
-	$admin_lname=$_POST['admin_lname'];
-	$admin_block=$_POST['admin_block'];
-	$admin_flatnumber=$_POST['admin_flatnumber'];
-	$admin_mobile=$_POST['admin_mobile'];
+	$admin_fname=htmlentities(strip_tags($_POST['admin_fname']));
+	$admin_lname=htmlentities(strip_tags($_POST['admin_lname']));
+	$admin_block=htmlentities(strip_tags($_POST['admin_block']));
+	$admin_flatnumber=htmlentities(strip_tags($_POST['admin_flatnumber']));
+	$admin_mobile=htmlentities(strip_tags($_POST['admin_mobile']));
 	
 
 require("all_connect.php");

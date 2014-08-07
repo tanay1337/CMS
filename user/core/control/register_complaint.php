@@ -30,8 +30,8 @@ date_default_timezone_set('UTC');
 $complaintdate = date("d-m-y");
 $email=$user_email;
 $status="Pending";
-$complainttype=$_POST['complainttype'];
-$complaint=$_POST['complaint'];
+$complainttype=htmlentities(strip_tags($_POST['complainttype']));
+$complaint=htmlentities(strip_tags($_POST['complaint']));
 require("all_connect.php");
 $sql="INSERT INTO complaint(address, email, complaint, complainttype, complaintdate, status) VALUES('$address', '$email', '$complaint', '$complainttype', '$complaintdate', '$status')";
 if(mysqli_query($con, $sql))
