@@ -32,7 +32,7 @@
       <form method="POST" action="../user/welcome.php" name="user_login">
 		
               
-              <input type="text" name="user_email" placeholder="Email-ID" style="height:17px; width: 150px; border-radius: 6px;" required />
+              <input type="email" name="user_email" placeholder="Email-ID" style="height:17px; width: 150px; border-radius: 6px;" required />
               
               <input type="password" name="user_password" placeholder="*****" style="height:17px; width: 150px; border-radius: 6px;" required />
               <input type="submit" value="Login" style="margin-top: 10px; width:70px; height: 25px; border-radius: 6px;" required />
