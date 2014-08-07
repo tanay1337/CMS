@@ -58,7 +58,7 @@ $sql = "SELECT * FROM admin WHERE email = '$admin_email' AND password = '$admin_
 $result = mysqli_query($con, $sql);
 $num = mysqli_num_rows($result);
 if(!$num==1) {
-header('Location : http://127.0.0.1/');
+echo "<center><h1>Incorrect Username/Password, please try to login <a href='http://127.0.0.1/admin/'>again</a>.</center></h1>";
 }
 else {
 while($obj = mysqli_fetch_assoc($result)) {
@@ -68,7 +68,7 @@ session_start();
 }
 else
 {
-header('Location: http://127.0.0.1/');
+echo "<center><h1>Incorrect Username/Password, please try to login <a href='http://127.0.0.1/admin/'>again</a>.</center></h1>";
 }
 
 if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
@@ -81,7 +81,7 @@ $_SESSION['authenticated']=1;
 }
 if(!isset($_SESSION['authenticated']) || $_SESSION['authenticated']!==1)
 {
-header('Location: http://127.0.0.1/');
+echo "<center><h1>Incorrect Username/Password, please try to login <a href='http://127.0.0.1/admin/'>again</a>.</center></h1>";
 }
 else
 {
