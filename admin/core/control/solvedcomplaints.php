@@ -15,6 +15,8 @@ th,td
 padding:5px;
 }
 </style>
+
+<meta http-equiv="refresh" content="15">
 </head>
 <body>
 

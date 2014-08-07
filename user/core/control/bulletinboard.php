@@ -2,6 +2,8 @@
 <head>
 	  <link rel="stylesheet" href="../../../extras/font-awesome/css/font-awesome.min.css">
 
+<meta http-equiv="refresh" content="60">
+
 </style>
 </head>
 <body>
@@ -26,7 +28,6 @@ else {
 		echo "<font size='3'><a href='";
 		echo "../../../announcements/" . $obj['filename'];
 		echo "' target='_blank'>Download Notice as PDF <i class='fa fa-download'></i></a></font><hr color='black'>";
-		header("refresh: 60;");
 		?>
 	</div>
 	<br>

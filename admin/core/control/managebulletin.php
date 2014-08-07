@@ -6,6 +6,9 @@ $_SESSION['authenticated']=1;
 <!DOCTYPE HTML>
 <head>
 	<link href="../../../extras/css/bootstrap.css" rel="stylesheet">
+	
+<meta http-equiv="refresh" content="30">
+
 </head>
 <body>
 

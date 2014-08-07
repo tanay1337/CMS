@@ -9,6 +9,9 @@ $_SESSION['authenticated']=1;
 	<script language="javascript" type="text/javascript" src="../../../extras/jquery.js"></script>
 		<script language="javascript" type="text/javascript" src="../../../extras/common.js"></script>
 		<link rel="stylesheet" href="../../../extras/font-awesome/css/font-awesome.min.css">
+
+<meta http-equiv="refresh" content="10">
+
 </head>
 <style>
 th,td

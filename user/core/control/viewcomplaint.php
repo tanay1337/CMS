@@ -14,6 +14,8 @@ th,td
 padding:5px;
 }
 </style>
+
+<meta http-equiv="refresh" content="10">
 </head>
 <body>
 
@@ -79,7 +81,6 @@ else {
 
 		<?php
 		
-		header("refresh: 10;");
 		}
 }
 mysqli_close($con);

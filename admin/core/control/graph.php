@@ -12,6 +12,9 @@ $_SESSION['authenticated']=1;
 <link href="../../../extras/css/bootstrap.css" rel="stylesheet">
 
     <link href="../../../extras/css/sb-admin.css" rel="stylesheet">
+
+<meta http-equiv="refresh" content="15">
+
 </head>
 <body>
 
@@ -125,7 +128,7 @@ Percent Club House issues: <span style="color: #55ACEE;"><?php echo $pendclubpro
 	<?php
 mysqli_close($con);
 }
-		header("refresh: 10;");
+
 
 ?>
 <script>

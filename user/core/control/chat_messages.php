@@ -1,3 +1,10 @@
+<html>
+<head>
+
+<meta http-equiv="refresh" content="3">
+</head>
+<body>
+
 <?php
 session_start();
 $user_email= $_SESSION['user_email'];
@@ -18,9 +25,9 @@ else
 while($obj=mysqli_fetch_assoc($result))
 {
  echo "<span style='color: #55ACEE; '><b>{$obj['from_userinfo']}</b> </span> : {$obj['chat_message']}<br>";
-header("refresh: 2;");
-
-
 }
 }
 ?>
+
+</body>
+</html>
