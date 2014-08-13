@@ -50,6 +50,8 @@
     </style>
   </head>
   <?php
+if(isset($_POST['user_email']) && isset($_POST['user_password']))
+{ 
 $user_email = $_POST['user_email'];
 $user_password = MD5(htmlentities(strip_tags($_POST['user_password'])));
 
@@ -232,17 +234,23 @@ Mobile:
                 </b>
                 </a>
                 <ul class="dropdown-menu">
+
                   <li>
-                    <a href="#">
-                      <i class="fa fa-gear">
-                      </i>
-                      Settings
-                    </a>
-                  </li>
-                  <li class="divider">
-                  </li>
-                  <li>
-                    <a href="http://127.0.0.1/">
+                    <a href="<?php $_SERVER['PHP_SELF'].'?logout=true'; ?>">
+                   <?php
+                      if ((isset($_GET['logout'])) &&($_GET['logout']=="true")){
+  $_SESSION['authenticated'] = NULL;
+  $_SESSION['user_email'] = NULL;
+  $_SESSION['user_password'] = NULL;
+  $_SESSION['address'] = NULL;
+  $_SESSION['userinfo'] = NULL;
+  unset($_SESSION['authenticated']);
+  unset($_SESSION['user_email']);
+  unset($_SESSION['user_password']);
+  unset($_SESSION['address']);
+  unset($_SESSION['userinfo']);
+}
+?>
                       <i class="fa fa-power-off">
                       </i>
                       Log Out
@@ -337,6 +345,11 @@ Mobile:
 }
 }
 mysqli_close($con);
+}
+else
+{
+echo "<center><h1>You have been logged out, please click here to login <a href='http://127.0.0.1/'>again</a>.</center></h1>";
+}
 ?>
   </html>
   

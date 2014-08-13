@@ -50,6 +50,8 @@
     </style>
   </head>
   <?php
+if(isset($_POST['admin_email']) && isset($_POST['admin_password']))
+{ 
 $admin_email = $_POST['admin_email'];
 $admin_password = MD5(htmlentities(strip_tags($_POST['admin_password'])));
 $con = mysqli_connect("localhost", "root", "", "cms");
@@ -231,17 +233,23 @@ Mobile:
                 </b>
                 </a>
                 <ul class="dropdown-menu">
+     
                   <li>
-                    <a href="#">
-                      <i class="fa fa-gear">
-                      </i>
-                      Settings
-                    </a>
-                  </li>
-                  <li class="divider">
-                  </li>
-                  <li>
-                    <a href="http://127.0.0.1/admin/">
+                    <a href="<?php $_SERVER['PHP_SELF'].'?logout=true'; ?>">
+                      <?php
+                      if ((isset($_GET['logout'])) &&($_GET['logout']=="true")){
+  $_SESSION['authenticated'] = NULL;
+  $_SESSION['user_email'] = NULL;
+  $_SESSION['user_password'] = NULL;
+  $_SESSION['address'] = NULL;
+  $_SESSION['userinfo'] = NULL;
+  unset($_SESSION['authenticated']);
+  unset($_SESSION['admin_email']);
+  unset($_SESSION['admin_password']);
+  unset($_SESSION['address']);
+  unset($_SESSION['userinfo']);
+}
+?>
                       <i class="fa fa-power-off">
                       </i>
                       Log Out
@@ -344,6 +352,11 @@ Mobile:
 }
 }
 mysqli_close($con);
+}
+else
+{
+echo "<center><h1>You have been logged out, please click here to login <a href='http://127.0.0.1/admin'>again</a>.</center></h1>";
+}
 ?>
   </html>
   
