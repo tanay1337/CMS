@@ -8,7 +8,6 @@ $_SESSION['authenticated']=1;
 <body>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"   >
 <input type="file" name="image" required />
-<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 <input type="submit" id="submit" value="Upload" />
 </form>
 </body>
