@@ -330,15 +330,7 @@ Mobile:
       <script src="../extras/js/jquery-1.10.2.js">
       </script>
       <script src="../extras/js/bootstrap.js">
-      </script>
-      
-      <!-- Page Specific Plugins -->
-      
-      <script src="../extras/js/tablesorter/jquery.tablesorter.js">
-      </script>
-      <script src="../extras/js/tablesorter/tables.js">
-      </script>
-      
+      </script>      
     </body>
     <?php
 }
