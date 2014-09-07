@@ -97,7 +97,7 @@
           <input type="text" name="flatnumber" placeholder="Flat Number" style="height:25px; width: 265px; border-radius: 6px;" required />
           <br>
           <br>
-          <input type="text" name="mobile" placeholder="Mobile Number" style="height:25px; width: 385px; border-radius: 6px;" required />
+          <input type="text" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" style="height:25px; width: 385px; border-radius: 6px;" required />
           <br>
           <br>
           <input type="password" name="password" placeholder="New Password" style="height:25px; width: 385px; border-radius: 6px;" required />

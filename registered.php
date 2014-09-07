@@ -54,7 +54,7 @@ $email=$_POST['email'];
 $block=htmlentities(strip_tags($_POST['block']));
 $flatnumber=mysqli_real_escape_string(htmlentities(strip_tags($_POST['flatnumber'])));
 $mobile=htmlentities(strip_tags($_POST['mobile']));
-$password=MD5(htmlentities(strip_tags(($_POST['password'])));
+$password=MD5(htmlentities(strip_tags($_POST['password'])));
 $con = mysqli_connect("localhost", "root", "", "cms");
 $sql="INSERT INTO users(firstname, lastname, email, block, flatnumber, mobile, password) VALUES('$firstname', '$lastname', '$email', '$block', '$flatnumber', '$mobile', '$password')";
 if(mysqli_query($con, $sql))
