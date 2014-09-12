@@ -43,7 +43,7 @@
   </div>
   
   <div id="user_login" style="opacity: 0.9; font-family: 'Arimo', sans-serif; background-color: #f5f8fa; margin-top: 90px; position: relative; box-shadow: 0px 0px 10px rgb(17, 17, 17);padding-top:100px; padding:10px; width: 450px; height: 455px; margin-left: 33%; color: #66757f;">
-	Krishna Apra Gradens
+	Krishna Apra Gardens
       <hr>
       <br>
       <center>
