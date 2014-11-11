@@ -19,8 +19,10 @@ CMS (Complaint Management System)
 >          
 >         admin/core/control/all_connect.php
 >         admin/core/control/conn.php
+>         admin/core/welcome.php
 >         user/core/control/all_connect.php
 >         user/core/control/conn.php
+>         user/welcome.php
 >
 > 3. Log in at the `Admin Control Panel` using `http://127.0.0.1/admin/` with the following credentials:
 >
